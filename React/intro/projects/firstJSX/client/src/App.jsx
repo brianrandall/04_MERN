@@ -1,6 +1,6 @@
 import './App.css';
-import Header from './components/header.jsx'
-import List from './components/list.jsx'
+import Header from './components/header'
+import List from './components/list'
 
 function App() {
   return (
