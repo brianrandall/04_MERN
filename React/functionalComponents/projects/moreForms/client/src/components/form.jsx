@@ -103,21 +103,21 @@ const Form = () => {
     <div className='container'>
         <form onSubmit={submitHandler}>
             <div className='form-group'>
-                <label>first name: </label>
+                <label>first name: </label><br/>
                 <input onChange={firstNameVerification} type='text'></input>
             </div>
             <div>
                 {firstNameError ? <span>{firstNameError}</span>: ''}
             </div>
             <div className='form-group'>
-                <label>last name: </label>
+                <label>last name: </label><br/>
                 <input onChange={lastNameVerification} type='text'></input>
             </div>
             <div>
                 {lastNameError ? <span>{lastNameError}</span>: ''}
             </div>
             <div className='form-group'>
-                <label>email: </label>
+                <label>email: </label><br/>
                 <input onChange={emailVerification} type='text'></input>
             </div>
             <div>
@@ -127,7 +127,7 @@ const Form = () => {
                 {emailError ? <span>{emailError}</span>: ''}
             </div>
             <div className='form-group'>
-                <label>password: </label>
+                <label>password: </label><br/>
                 <input onChange={passwordVerification} type='text'></input>
             </div>
             <div>
