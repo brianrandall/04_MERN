@@ -1,0 +1,38 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.todo {
+  background-color: lightgray;
+  width: fit-content;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.remove {
+  margin-left: 5px;
+  color: red;
+}
+
+.input {
+  margin-top: 5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}

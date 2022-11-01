@@ -134,7 +134,7 @@ const Form = () => {
                 {passswordError ? <span>{passswordError}</span>: ''}
             </div>
             <div className='form-group'>
-                <label>confirm password: </label>
+                <label>confirm password: </label><br/>
                 <input onChange={passwordMatch} type='text'></input>
             </div>
             <div>
