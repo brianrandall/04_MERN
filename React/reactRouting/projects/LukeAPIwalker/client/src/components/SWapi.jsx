@@ -12,7 +12,6 @@ const SWapi = () => {
 
     const [worldID, setWorldID] = useState(null)
 
-    axios.
 
     useEffect(() => {
         axios.get(`https://swapi.dev/api/${api}/${id}`)
