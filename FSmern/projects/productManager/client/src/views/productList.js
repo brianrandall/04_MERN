@@ -14,10 +14,6 @@ const Products = () => {
     <div>
         {products.map((product, idx) => {
 
-            // return a list of product titles with links to their detail pages
-        //     return <p key={idx}><Link to={`/products/${product._id}`}>{product.title}</Link></p>
-        // })}
-
             return (
                 <p key={idx}>
                     <Link to = {`${product._id}`}> 
