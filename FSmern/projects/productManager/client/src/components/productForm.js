@@ -11,8 +11,6 @@ const Form = () => {
     const createProduct = e => {
         e.preventDefault();
 
-        axios.get('http://localhost:8002/api/products/title/' + title)
-            .then(res => console.log(res.data.title))
             
         axios.post('http://localhost:8002/api/products/new', {
             title,
@@ -21,6 +19,7 @@ const Form = () => {
         })
             .then(res => console.log(res))
             .catch(err => {
+                console.log(err.response.data)
                 setErrors(err.response.data.errors)
             }
             )

@@ -8,8 +8,14 @@ module.exports.index = (req, res) => {
 
 module.exports.createProduct = (req, res) => {
     console.log(req.body)
-    Product.create(req.body)
-        .then(product => res.json(product))
+    Product.exists({title :req.body.title})
+        .then(productExists => {
+            if (productExists) {
+                return Promise.reject('product already exists')
+            }
+            return Product.create(req.body)
+        })
+        .then(saveResult => res.json(saveResult)) 
         .catch(err => res.status(400).json(err));
 }
 
@@ -33,7 +39,7 @@ module.exports.findTitle = (req, res) => {
 
 
 module.exports.updateProduct = (req, res) => {
-    Product.findOneAndUpdate({_id:req.params.id}, req.body, {new:true})
+    Product.findOneAndUpdate({_id:req.params.id}, req.body, {runValidators:true})
         .then(updatedProduct => res.json(updatedProduct))
         .catch(err => res.status(400).json(err));
 }
@@ -43,3 +49,4 @@ module.exports.deleteProduct = (req, res) => {
         .then(deleteConfirmation => res.json(deleteConfirmation))
         .catch(err => res.json(err));
 }
+
