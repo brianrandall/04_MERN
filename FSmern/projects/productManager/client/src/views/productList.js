@@ -6,9 +6,10 @@ const Products = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:8005/api/products')
+        axios.get('http://localhost:8002/api/products')
             .then(res => setProducts(res.data))
-    }, [])
+    }, [products])
+
 
   return (
     <div>
@@ -18,7 +19,7 @@ const Products = () => {
                 <p key={idx}>
                     <Link to = {`${product._id}`}> 
                         {product.title} 
-                    </Link> 
+                    </Link>
                 </p>
                 )
         })}
