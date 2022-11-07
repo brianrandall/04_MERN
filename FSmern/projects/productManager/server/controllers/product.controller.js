@@ -10,7 +10,7 @@ module.exports.createProduct = (req, res) => {
     console.log(req.body)
     Product.create(req.body)
         .then(product => res.json(product))
-        .catch(err => res.json(err));
+        .catch(err => res.status(400).json(err));
 }
 
 module.exports.getAllProducts = (req, res) => {
@@ -24,6 +24,13 @@ module.exports.getProduct = (req, res) => {
         .then(product => res.json(product))
         .catch(err => res.json(err));
 }
+
+module.exports.findTitle = (req, res) => {
+    Product.findOne({title: req.params.title})
+        .then(product => res.json(product))
+        .catch(err => res.json(err));
+}
+
 
 module.exports.updateProduct = (req, res) => {
     Product.findOneAndUpdate({_id:req.params.id}, req.body, {new:true})

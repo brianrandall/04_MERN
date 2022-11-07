@@ -5,7 +5,7 @@ import Products from './productList'
 const Main = () => {
   return (
     <div>
-        Product Manager
+        <h2>Product Manager</h2>
         <Form />
         <hr />
         Product List

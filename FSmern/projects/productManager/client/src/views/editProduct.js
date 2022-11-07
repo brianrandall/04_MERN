@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { redirect, useParams, useNavigate, Navigate } from 'react-router-dom'
 import axios from 'axios'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Update = () => {
 
@@ -9,6 +9,7 @@ const Update = () => {
     const [title, setTitle] = useState("")
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")
+    const navigate = useNavigate()
 
     useEffect(() => {
         axios.get('http://localhost:8002/api/products/' + id)
@@ -31,8 +32,8 @@ const Update = () => {
             .catch(err => {
                 console.log(err.response.data.errors)
             })
+        navigate(`/${id}`)
         }
-
 
   return (
     <div>
@@ -50,7 +51,7 @@ const Update = () => {
                 <label>Description</label><br />
                 <input type="text" onChange={(e) => setDescription(e.target.value)} value={description} />
             </p>
-            <Link to = {`/`} > <input type="submit" /> </Link>
+            <input type="submit"/>
             
         </form>
     </div>
