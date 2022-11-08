@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DATABASE = 'YOUR DATABASE NAME';
+const DATABASE = 'authors_db';
 
 mongoose.connect(`mongodb://localhost/${DATABASE}`, {
     useNewUrlParser: true,

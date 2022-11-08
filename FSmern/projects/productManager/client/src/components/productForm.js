@@ -7,6 +7,7 @@ const Form = () => {
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")
     const [errors, setErrors] = useState({})
+    const [existError, setExistErrors] = useState()
 
     const createProduct = e => {
         e.preventDefault();
@@ -20,7 +21,12 @@ const Form = () => {
             .then(res => console.log(res))
             .catch(err => {
                 console.log(err.response.data)
-                setErrors(err.response.data.errors)
+                if ( typeof err.response.data === 'string') {
+                    setExistErrors(err.response.data)
+                } else {
+                    setExistErrors('')
+                    setErrors(err.response.data.errors)
+                }
             }
             )
         }
@@ -30,8 +36,9 @@ const Form = () => {
         <form onSubmit={createProduct}>
             <p>
                 <label>Title</label><br />
-                <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} />
+                <input type="text" onChange={(e) => setTitle(e.target.value)} />
                 {errors.title ? <p style={{color:'red'}}>{errors.title.message}</p> : ''}
+                {existError ? <p style={{color:'red'}}>{existError}</p> : ""}
             </p>
             <p>
                 <label>Price</label><br />

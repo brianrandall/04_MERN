@@ -1,7 +1,7 @@
 import './App.css';
+import { Link, Routes, Route } from 'react-router-dom'
 import Main from './views/main'
 import Product from './views/productPage'
-import { Link, Routes, Route } from 'react-router-dom'
 import Update from './views/editProduct'
 
 function App() {

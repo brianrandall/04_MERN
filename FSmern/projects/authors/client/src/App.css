@@ -1,0 +1,22 @@
+* {
+  background-color: darkolivegreen;
+}
+
+.authorTable {
+  text-align: center;
+}
+
+
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.authorTable td {
+  padding: 10px;
+}
+
+.formDiv {
+  border: 2px solid black;
+  padding: 20px
+}
