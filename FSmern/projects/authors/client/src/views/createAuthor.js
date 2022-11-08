@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import Cancel from '../components/cancelButton'
+import { useNavigate } from 'react-router-dom'
 
 const AuthorCreate = () => {
 
@@ -8,13 +9,17 @@ const AuthorCreate = () => {
     const [errors, setErrors] = useState({})
     const [existError, setExistError] = useState('')
 
+    const nav = useNavigate()    
+
     const createAuthor = e => {
         e.preventDefault()
 
         axios.post('http://localhost:8007/api/authors/new', {
             name
         })
-        .then(res => console.log(res))
+        .then(res => {console.log(res)
+        nav('/')
+        })
         .catch(err => {
             console.log(err.response.data)
             if ( typeof err.response.data === 'string') {
@@ -37,10 +42,10 @@ const AuthorCreate = () => {
                 {errors.name ? <p style={{color:'red'}}>{errors.name.message}</p> : ''}
                 {existError ? <p style={{color:'red'}}>{existError}</p> : ""}
             </p>
-            
-                <input type='submit'></input>
+            <div className='formButtons'>
+                <Cancel /> <input type='submit'/>
+            </div>
         </form>
-        <Cancel />
     </div>
   )
 }

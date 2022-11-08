@@ -2,9 +2,9 @@
   background-color: darkolivegreen;
 }
 
-.authorTable {
+/* .authorTable {
   text-align: center;
-}
+} */
 
 
 .App {
@@ -12,11 +12,17 @@
   justify-content: center;
 }
 
-.authorTable td {
-  padding: 10px;
+.authTable td {
+  text-align: center;
 }
 
 .formDiv {
   border: 2px solid black;
   padding: 20px
+}
+
+.formButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
