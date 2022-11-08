@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// const TEMPLATESCHEMA = new mongoose.Schema({
+// const SCHEMA_NAME = new mongoose.Schema({
 
 //      Add your schema here
 
@@ -8,4 +8,4 @@ const mongoose = require("mongoose");
 { timestamps: true });
 );
 
-// module.exports.THING = mongoose.model("THING", SCHEMA_NAME);
+// module.exports.Template = mongoose.model("Template", SCHEMA_NAME);

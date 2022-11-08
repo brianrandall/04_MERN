@@ -13,7 +13,7 @@ const Cancel = () => {
 
   return (
     <div>
-        <button onClick={goHome}>Cancel</button>
+        <button type='button' onClick={goHome}>Cancel</button>
     </div>
   )
 }

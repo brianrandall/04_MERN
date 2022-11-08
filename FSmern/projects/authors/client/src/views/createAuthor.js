@@ -9,7 +9,9 @@ const AuthorCreate = () => {
     const [existError, setExistError] = useState('')
 
     const createAuthor = e => {
-        axios.post('http://localhost:8000/api/authors/new', {
+        e.preventDefault()
+
+        axios.post('http://localhost:8007/api/authors/new', {
             name
         })
         .then(res => console.log(res))
@@ -35,10 +37,10 @@ const AuthorCreate = () => {
                 {errors.name ? <p style={{color:'red'}}>{errors.name.message}</p> : ''}
                 {existError ? <p style={{color:'red'}}>{existError}</p> : ""}
             </p>
-            <p>
+            
                 <input type='submit'></input>
-            </p>
         </form>
+        <Cancel />
     </div>
   )
 }
