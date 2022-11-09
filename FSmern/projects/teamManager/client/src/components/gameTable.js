@@ -15,7 +15,7 @@ const Games = () => {
     const [status, setStatus] = useState([]);
     const [team, setTeam] = useState([]);
     const [numOfGames, setNumOfGames] = useState('');
-    const [playerID, setPlayerID] = useState('');
+    // const [playerID, setPlayerID] = useState('');
 
     useEffect(() => {
         axios.get('http://localhost:8001/api/game')
@@ -38,13 +38,14 @@ const Games = () => {
         })
             .then(res => {
                 console.log(res)
+                setGame([...game, res.data])
                 nav('/status/game/' +num)
             })
             .catch(err => console.log(err))
     }
 
-    const addStatus = (e) => {
-        e.preventDefault();
+    const addStatus = (playerID) => {
+        // e.preventDefault();
         axios.put('http://localhost:8001/api/team/' + playerID, 
         {
             $push: {
@@ -94,8 +95,8 @@ const Games = () => {
                                         <td>
                                             <button onClick={ () => {
                                                 setStatus('Playing')
-                                                setPlayerID(x._id)
-                                                addStatus()
+                                                // setPlayerID(x._id)
+                                                addStatus(x._id)
                                             }} style={{padding: '5px'}}>
                                                 Playing</button>
                                             <button style={{padding: '5px'}}>
