@@ -6,19 +6,6 @@ module.exports.index = (req, res) => {
     })
 }
 
-module.exports.createAuthor = (req, res) => {
-    console.log(req.body)
-    Author.exists({name :req.body.name})
-        .then(authorExists => {
-            if (authorExists) {
-                return Promise.reject('author already exists')
-            }
-            return Author.create(req.body)
-        })
-        .then(saveResult => res.json(saveResult)) 
-        .catch(err => res.status(400).json(err));
-}
-
 module.exports.getAllAuthors = (req, res) => {
     Author.find({})
         .then(allAuthors => res.json(allAuthors))
