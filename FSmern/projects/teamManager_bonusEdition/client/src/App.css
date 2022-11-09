@@ -1,0 +1,51 @@
+* {
+  
+  padding: 0px;
+  margin: 0px
+}
+
+.App {
+  background-color: darkslategray;
+  padding: 10px;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header_linx {
+  margin-bottom: 10px;
+} 
+
+.bodyDiv {
+  border: 1px solid black;
+  background-color: rgb(156, 206, 250);
+  padding: 10px;
+  width: fit-content;
+}
+
+.tableDiv {
+  border: 1px solid black;
+  background-color: rgb(87, 130, 168);
+  width: fit-content;
+}
+
+.playerz th, td {
+  padding: 10px;
+  border-collapse: collapse;
+}
+
+.playerz th {
+  background-color: rgb(156, 169, 182);
+  text-decoration: underline;
+}
+
+.gameLinx {
+  margin-bottom: 15px;
+}
+
+.gameStuff {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
