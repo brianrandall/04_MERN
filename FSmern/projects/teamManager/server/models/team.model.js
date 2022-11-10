@@ -10,7 +10,25 @@ const TeamSchema = new mongoose.Schema({
         type: String,
         required: [true, 'position required']
     },
-    status: []
+    status: {
+        game: {
+            1: {
+                playing: { type: Boolean},
+                notPlaying: {type: Boolean},
+                undecided: {type: Boolean, default: [true]}
+            },
+            2: {
+                playing: { type: Boolean},
+                notPlaying: {type: Boolean},
+                undecided: {type: Boolean, default: [true]}
+            },
+            3: {
+                playing: { type: Boolean},
+                notPlaying: {type: Boolean},
+                undecided: {type: Boolean, default: [true]}
+            }
+        }
+    }
 },
 {timestamps: true });
 

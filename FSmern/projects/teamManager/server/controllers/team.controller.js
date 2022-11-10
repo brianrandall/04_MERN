@@ -32,7 +32,7 @@ module.exports.getOneTeam = (req, res) => {
 }
 
 module.exports.updateTeam = (req, res) => {
-    Team.findOneAndUpdate({_id: req.params.id}, req.body, {runValidators: true})
+    Team.findOneAndUpdate({_id: req.params.id}, req.body, {runValidators: true}, {useFindandModify: true})
         .then(updatedTeam => res.json(updatedTeam))
         .catch(err => res.json(err));
 }

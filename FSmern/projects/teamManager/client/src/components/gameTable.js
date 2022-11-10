@@ -15,6 +15,9 @@ const Games = () => {
     const [status, setStatus] = useState([]);
     const [team, setTeam] = useState([]);
     const [numOfGames, setNumOfGames] = useState('');
+    const [isPlaying, setIsPlaying] = useState(Boolean)
+    const [isNotPlaying, setIsNotPlaying] = useState(Boolean)
+    const [isUndecided, setIsUndecided] = useState(Boolean)
     // const [playerID, setPlayerID] = useState('');
 
     useEffect(() => {
@@ -39,23 +42,29 @@ const Games = () => {
             .then(res => {
                 console.log(res)
                 setGame([...game, res.data])
-                nav('/status/game/' +num)
+                nav('/status/game/' + num)
             })
             .catch(err => console.log(err))
     }
 
     const addStatus = (playerID) => {
         // e.preventDefault();
-        axios.put('http://localhost:8001/api/team/' + playerID, 
-        {
-            $push: {
-                game: {num},
-                status: {status}
+        axios.put('http://localhost:8001/api/team/' + playerID,
+            {
+                $push: {
+                    status: {
+                        game: { num }: {
+                        playing: { isPlaying },
+                        notPlaying: { isNotPlaying },
+                        undecided: { isUndecided }
+                        }
+                    }
+                }
             }
-        },  {new: true, useFindAndModify: true}
         )
             .then(res => {
                 console.log(res)
+                nav('/status/game/' + num)
             })
             .catch(err => console.log(err))
     }
@@ -93,18 +102,18 @@ const Games = () => {
                                             {x.name}
                                         </td>
                                         <td>
-                                            <button onClick={ () => {
+                                            <button onClick={() => {
                                                 setStatus('Playing')
                                                 // setPlayerID(x._id)
                                                 addStatus(x._id)
-                                            }} style={{padding: '5px'}}>
+                                            }} style={{ padding: '5px' }}>
                                                 Playing</button>
-                                            <button style={{padding: '5px'}}>
-                                            Not Playing
-                                                </button>
+                                            <button style={{ padding: '5px' }}>
+                                                Not Playing
+                                            </button>
                                             <button style={{ backgroundColor: 'yellow', padding: '5px' }}>
-                                            Undecided
-                                                </button>
+                                                Undecided
+                                            </button>
                                         </td>
                                     </tr>
                                 )
