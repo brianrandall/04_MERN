@@ -1,16 +1,17 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import produce from './img/site_ads/produce.png'
 
 
 
 const ProductList = () => {
 
+    const backgroundImg = ['produce.png', 'tools.png']
+
     return (
         <div>
             
             <div className='adCarousel'>
-                <img src={require('./img/site_ads/produce.png')}/>
+                <img src={require('./img/site_ads/' + backgroundImg[Math.floor(Math.random() * backgroundImg.length)]) }/>
 
                 {/* <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -40,19 +41,19 @@ const ProductList = () => {
             <div className='categoryContainer'>
                 <div className='mainCategory'>
                     <h3>chairs n things</h3>
-                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="200px"/>
+                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="160px"/>
                 </div>
                 <div className='mainCategory'>
                     <h3>chairs n things</h3>
-                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="200px"/>
+                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="160px"/>
                 </div>
                 <div className='mainCategory'>
                     <h3>chairs n things</h3>
-                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="200px"/>
+                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="160px"/>
                 </div>
                 <div className='mainCategory'>
                     <h3>chairs n things</h3>
-                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="200px"/>
+                    <img src={require('./img/site_ads/raw/squares/patio.jpeg')} width="160px"/>
                 </div>
             </div>
             
