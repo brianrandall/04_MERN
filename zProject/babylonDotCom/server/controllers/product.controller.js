@@ -48,7 +48,7 @@ module.exports.deleteProduct = (req, res) => {
 module.exports.seedProducts = (req, res) => {
     const categories = ['Appliances', 'Arts & Crafts', 'Books', 'Automotive', 'Baby', 'Beauty & Personal Care', 'Camera & Photo Products', 'CDs & Vinyl', 'Cell Phones & Accessories', 'Clothing, Shoes & Jewelery', 'Computers & Accessories', 'Electronics', 'Gift Cards', 'Grocery', 'Home & Kitchen', 'Industrial & Scientific', 'Kitchen & Dining', 'Office Products', 'Patio, Lawn & Garden', 'Pet Supplies', 'Software', 'Sports & Outdoors', 'Tools & Home Improvement', 'Toys & Games', 'Video Games', ]
     const products = []
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 2000; i++) {
         products.push(
             {
                 createdBy: faker.internet.userName(),
